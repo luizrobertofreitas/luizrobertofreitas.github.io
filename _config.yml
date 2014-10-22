@@ -8,7 +8,7 @@ highlighter: pygments
 # Themes are encouraged to use these universal variables
 # so be sure to set them if your theme uses them.
 #
-title : Lizo Lizo Lizo
+title : Luiz Roberto Freitas
 tagline:
 author :
   name : Luiz Roberto Freitas
@@ -100,7 +100,7 @@ JB :
   analytics :
     provider : google
     google :
-        tracking_id : 'UA-123-12'
+        tracking_id : 'UA-21944363-1'
     getclicky :
       site_id :
     mixpanel :
