@@ -1,10 +1,9 @@
 ---
 layout: page
-title: Home!
+title: Home
 tagline:
 ---
 {% include JB/setup %}
 
-## Home
 
 Bem vindo ao blog!!
