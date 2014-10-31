@@ -1,0 +1,70 @@
+---
+layout: post
+title: 'Instalando e configurando: Passenger + Apache2 + Rails 3.2.8 + Ubuntu 11.10'
+date: 2012-10-06 05:23:49.000000000 -03:00
+categories:
+- Apache2
+- Passenger
+- Rails
+- Ubuntu
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '23367135'
+author: 
+---
+<p>Após desenvolver muitas aplicações (testes, rsrs) e rodar em ambiente de development, alcancei um ponto crucial em todo o processo de desenvolvimento de software: <strong>Como é que eu vou colocar isso em produção??</strong></p>
+<p>Bom, pesquisei um pouco, lí vários posts, algumas documentações, recomendações (<strong><a href="http://rubyonrails.com.br/deploy">aqui</a></strong>), e, finalmente encontrei algo sobre o <strong><a href="https://www.phusionpassenger.com/download">Phusion Passenger</a></strong>.</p>
+<p>Não entrarei no mérito comparativo entre o <strong>Passenger</strong> e o <strong>Mongrel</strong> ou de qualquer outro tipo. A questão aqui, é: apenas documentar o procedimento que realizei para configurar o <strong>Passenger</strong> com o <strong>Apache2</strong> no <strong>Ubuntu 11.10</strong> e mandar bala na aplicação em modo de produção.</p>
+<p>Neste pequeno e modesto tutorial, é necessário a utilização do <a href="https://rvm.io/gemsets/basics/"><strong>RVM</strong></a></p>
+<p>Sem mais "delongas", seguem os passos:</p>
+<ul>
+<li>Abra o arquivo "<strong>Gemfile</strong>" e coloque a <strong>gem</strong> do <strong>Passenger</strong></li>
+</ul>
+<p style="padding-left:60px;"><strong>gem 'passenger'</strong></p>
+<p style="padding-left:60px;">Não se esqueça de rodar "<strong>bundle install</strong>" para instalar a gem configurada</p>
+<ul>
+<li>Abra o terminal do ubuntu e instale o <strong>Passenger Apache2 Module</strong>. Siga os passo conforme são mostrados no terminal.</li>
+</ul>
+<p style="padding-left:60px;"><strong>rvmsudo passenger-install-apache2-module</strong></p>
+<ul>
+<li>Localize o arquivo: "<strong>apache2.conf</strong>", no meu caso, está em: "<strong>/etc/apache2/apache2.conf</strong>"; inclua as linhas abaixo (Recomendação obtida a partir das informações da instalação realizada no passo acima).</li>
+</ul>
+<p style="padding-left:60px;"><strong>LoadModule passenger_module /{user_home}/.rvm/gems/ruby-1.9.3-p194/gems/passenger-3.0.17/ext/apache2/mod_passenger.so</strong><br />
+<strong> PassengerRoot /<strong>{user_home}/</strong>.rvm/gems/ruby-1.9.3-p194/gems/passenger-3.0.17</strong><br />
+<strong> PassengerRuby /<strong>{user_home}/</strong>.rvm/wrappers/ruby-1.9.3-p194/ruby</strong></p>
+<ul>
+<li>Crie um novo <strong>VirtualHost</strong> no arquivo de configuração do <strong>Apache2</strong>: "<strong>default</strong>", no meu caso, localizado em: "<strong>/etc/apache2/sites-available/default</strong>".</li>
+</ul>
+<p style="padding-left:60px;">&lt;VirtualHost *:80&gt;<br />
+ServerName <strong>www.yourhost.com # Utilize o nome do seu domínio</strong><br />
+<strong> # !!! Be sure to point DocumentRoot to 'public'!</strong><br />
+DocumentRoot /somewhere/public  <strong># Aqui precisa ser /{RAILS_APP}/public</strong><br />
+&lt;Directory /somewhere/public&gt; <strong># Aqui precisa ser /{RAILS_APP}/public</strong><br />
+# This relaxes Apache security settings.<br />
+AllowOverride all<br />
+# MultiViews must be turned off.<br />
+Options -MultiViews<br />
+&lt;/Directory&gt;<br />
+&lt;/VirtualHost&gt;</p>
+<ul>
+<li>Após configurações, rode o seguinte comando, para reiniciar o <strong>Apache2</strong>:</li>
+</ul>
+<p style="padding-left:60px;"><strong>sudo service apache2 restart</strong></p>
+<ul>
+<li>Se o <strong>Apache2</strong> foi reiniciado com sucesso, acesse a URL configurada no <strong>VirtualHost</strong>. Obs: não informe a porta, pois, o <strong>Apache2</strong> está utilizando a porta 80 para redirecionar para o <strong>VirtualHost</strong>.</li>
+</ul>
+<ul>
+<li>Caso ocorra algum erro, você pode verificar o <strong>log</strong> localizado em "<strong>/{RAILS_APP}/logs/production.log</strong>". No meu caso, tive problemas com a seguinte linha no arquivo: "<strong>/{RAILS_APP}/config/environments/production.rb</strong>"</li>
+</ul>
+<p style="padding-left:60px;">mude de:</p>
+<p style="padding-left:60px;">config.assets.compile = false</p>
+<p style="padding-left:60px;">para</p>
+<p style="padding-left:60px;">config.assets.compile = true</p>
+<ul>
+<li>Caso tenha problemas, como mencionado no passo anterior, reinicie o <strong>Apache2, </strong>conforme o passo <strong>5</strong>.</li>
+</ul>
+<p>Bom... foi somente isso que fiz para ter a aplicação rodando em modo de produção. Gostaria de ressaltar que não realizei nenhuma configuração para otimização de performance, não utilizei nenhuma configuração para configurar cache de arquivos estáticos no <strong>Apache2</strong>. Como disse anteriormente, o intuito é somente documentar a integração do <strong>Passenger</strong> com o <strong>Apache2</strong> para rodar aplicações <strong>Rails</strong> em modo de produção.</p>
+<p>Obrigado!</p>

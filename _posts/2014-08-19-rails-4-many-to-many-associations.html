@@ -1,0 +1,23 @@
+---
+layout: post
+title: Rails 4 - Many to Many Associations
+date: 2014-08-19 12:59:24.000000000 -03:00
+categories: []
+tags: []
+status: draft
+type: post
+published: false
+meta:
+  _edit_last: '23367135'
+  geo_public: '0'
+author: 
+---
+<p>Neste post, veremos como trabalhar com associações many to many. Por mais simples que as aplicações possam parecer, sempre nos deparamos com uma situação dessas quando trabalhamos com bancos de dados relacionais.</p>
+<p>Antes de começar, preciso mostrar a fonte de onde aprendi as técnicas para trabalhar com many to many e como construir formulários.</p>
+<p>No <a title="Rails Guides" href="http://guides.rubyonrails.org/association_basics.html" target="_blank">Rails Guides</a>, são demonstradas algumas técnicas. Aqui, vou demonstrar 2 formas: com has_and_belongs_to_many e has_many :through</p>
+<ol>
+<li>Primeiramente, vamos ver como desenvolver utilizando o has_and_belongs_to_many. Veja os models: Users e Roles</li>
+</ol>
+<p>class User &lt; ActiveRecord::Base<br />
+has_and_belongs_to_many :roles<br />
+end</p>

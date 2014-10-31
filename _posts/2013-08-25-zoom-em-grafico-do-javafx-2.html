@@ -1,0 +1,19 @@
+---
+layout: post
+title: Zoom em gráfico do JavaFx 2
+date: 2013-08-25 22:31:50.000000000 -03:00
+categories: []
+tags: []
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '23367135'
+  _publicize_pending: '1'
+author: 
+---
+<p>Pessoal, estive estudando gráficos do JavaFx e uma das funcionalidades que eu precisava num gráfico era o zoom com scroll do mouse.</p>
+<p>Disponibilizei o código fonte como um Gist em <a title="http://gist.github.com/luizrobertofreitas/6336657" href="http://gist.github.com/luizrobertofreitas/6336657">http://gist.github.com/luizrobertofreitas/6336657</a>.</p>
+<p>Não tem muito o que explicar, exceto que, na linha 45 é necessário definir o autoRanging como false para o Axis que você deseja manipular pelo evento do scroll, conforme segue abaixo:</p>
+<blockquote><p>xAxis.setAutoRanging(false);</p></blockquote>
+<p>Do resto, é só compilar e rodar!!</p>
