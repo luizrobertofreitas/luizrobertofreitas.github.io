@@ -1,6 +1,6 @@
 ---
 layout: post
-category : linux java
+category : [linux, java]
 tagline: "Utilizando make para fazer build de projetos Java"
 tags : [java, linux, make, makefile]
 ---
