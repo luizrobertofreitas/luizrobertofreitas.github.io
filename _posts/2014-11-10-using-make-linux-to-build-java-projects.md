@@ -27,13 +27,13 @@ public class Hello {
 
 O próximo passo é criar o arquivo `makefile` para colocar as instruções desejadas para compilação e build.
 
-```makefile
+{% highlight makefile %}
 all: step1 step2 step3 step4
 step1: ; rm -rf classes && mkdir classes
 step2: ; javac Hello.java
 step3: ; mv Hello.class classes
 step4: ; cd classes && java Hello
-```
+{% endhighlight %}
 
 Após criar os arquivos (.java e makefile), basta executar no shell `make all` automáticamente, o comando **make** irá procurar pelo arquivo **makefile** no diretório e executar as instruções agrupadas no demarcador **all**.
 
