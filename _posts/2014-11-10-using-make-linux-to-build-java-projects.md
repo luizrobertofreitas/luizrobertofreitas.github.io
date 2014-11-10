@@ -17,13 +17,13 @@ Pensando desta forma, podemos utilizar o make para executar diversas tarefas rel
 
 Neste exemplo, vamos criar um arquivo chamado `Hello.java` e inserir o seguinte código complexo (hehe):
 
-```java
+{% highlight java %}
 public class Hello {
   public static void main(String[] args) {
     System.out.println("Hello World!");
   }
 }
-```
+{% endhighlight %}
 
 O próximo passo é criar o arquivo `makefile` para colocar as instruções desejadas para compilação e build.
 
