@@ -13,11 +13,14 @@ Além de ser uma boa prática (recomendada pela Oracle), algumas vezes é necess
 
 ### 2. Exemplo
 
-Neste exemplo, temos um BPEL chamado `SecondBPELProcess.bpel`:
+**2.1.** Neste exemplo, temos um BPEL chamado `SecondBPELProcess.bpel`:
 
 
-{% include image.html url="/images/2014-11-12-setting-bpel-composite-title/set-composite-title-1.png" description="Imagem 1" %}
+![alt text](https://raw.githubusercontent.com/luizrobertofreitas/luizrobertofreitas.github.io/master/_images/2014-11-12-setting-bpel-composite-title/set-composite-title-1.png "Imagem 1")
 
 
+**2.2.** Neste exemplo, temos um BPEL chamado `SecondBPELProcess.bpel`:
+
+![alt text](https://raw.githubusercontent.com/luizrobertofreitas/luizrobertofreitas.github.io/master/_images/2014-11-12-setting-bpel-composite-title/set-composite-title-2.png "Imagem 2")
 
 #### Até a próxima!!
