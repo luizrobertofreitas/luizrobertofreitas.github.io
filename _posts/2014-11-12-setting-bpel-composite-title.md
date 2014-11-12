@@ -15,8 +15,8 @@ Além de ser uma boa prática (recomendada pela Oracle), algumas vezes é necess
 
 Neste exemplo, temos um BPEL chamado `SecondBPELProcess.bpel`:
 
-![alt text](https://github.com/luizrobertofreitas/luizrobertofreitas.github.io/_images/2014-11-12-setting-bpel-composite-title/set-composite-title-1.png "Imagem 1")
 
+{% include image.html url="/_images/2014-11-12-setting-bpel-composite-title/set-composite-title-1.png" description="Imagem 1" %}
 
 
 
