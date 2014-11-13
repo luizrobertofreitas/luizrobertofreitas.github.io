@@ -15,13 +15,6 @@ Além de ser uma boa prática (recomendada pela Oracle), algumas vezes é necess
 
 **2.1.** Neste exemplo, temos um BPEL chamado `SecondBPELProcess.bpel`:
 
-{% highlight xml %}
-  <teste>
-    <teste2></teste2>
-  </teste>
-{% endhighlight %}
-
-
 ![alt text](https://raw.githubusercontent.com/luizrobertofreitas/luizrobertofreitas.github.io/master/_images/2014-11-12-setting-bpel-composite-title/set-composite-title-1.png "Imagem 1")
 
 
