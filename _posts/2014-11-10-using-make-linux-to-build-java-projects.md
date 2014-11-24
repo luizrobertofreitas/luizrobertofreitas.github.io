@@ -35,7 +35,7 @@ step3: ; mv Hello.class classes
 step4: ; cd classes && java Hello
 {% endhighlight %}
 
-Após criar os arquivos (.java e makefile), basta executar no shell `make all` automáticamente, o comando **make** irá procurar pelo arquivo **makefile** no diretório e executar as instruções agrupadas no demarcador **all**.
+Após criar os arquivos (.java e makefile), basta executar no shell `make all` automaticamente, o comando **make** irá procurar pelo arquivo **makefile** no diretório e executar as instruções agrupadas no demarcador **all**.
 
 No exemplo, temos outros demarcadores como: **step1**, **step2**... que são agrupados pelo **all**.
 
